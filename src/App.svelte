@@ -1,7 +1,8 @@
 <script>
 
-	import { SurfaceProvider, PaletteComponent, SurfaceComponent, ControlsComponent, MiniviewComponent} from "@visuallyjs/browser-ui-svelte"
+	import { SurfaceProvider, PaletteComponent, SurfaceComponent, ControlsComponent, MiniviewComponent, useZoom} from "@visuallyjs/browser-ui-svelte"
 
+	import CurrentZoom from "./components/CurrentZoom.svelte"
     import renderOptions from "./render-options"
     import viewOptions from "./view-options"
     import modelOptions from "./model-options"
@@ -12,6 +13,7 @@
 
 <SurfaceProvider>
 	<PaletteComponent className="vjs-demo-palette" selector="[data-vjs-type]">
+		<CurrentZoom/>
 		{#each greetings as g}
 			<div data-vjs-type="hello" data-vjs-label={g.h} class="vjs-hello" data-vjs-lang={g.lang}>{g.h}</div>
 		{/each}
